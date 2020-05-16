@@ -12,7 +12,18 @@ public class SpectrumDataProcessor implements ReceiverDataConverterListener{
 	
 	//metoda do przetwarzania widma i znajdowania sygna³ów powy¿ej progu decyzyjnego a potem znajdowanie pików (wykorzystaæ ró¿niczkê) i dla tych wartoœci maksymalnych okreœliææ czêstotliwoœci
 	public void proceesSpectrum(double[] receivedData) {
-		;
+
+		double[] spectrumDataGreaterThanThreshold = new double[receivedData.length];
+
+		for( double signal:receivedData){
+			int i = 0;
+			if (signal>threshold){
+				spectrumDataGreaterThanThreshold[i]=signal;
+				i++;
+			}
+		}
+		//TODO zapisac dane do bazy, moze zrobic jakis obiekt z polami (cos jak tabela w bazie SQL )
+
 	}
 
 	@Override
